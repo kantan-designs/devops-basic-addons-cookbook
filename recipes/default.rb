@@ -43,3 +43,10 @@ if node[:environment] == 'production'
     action :restart
   end
 end
+
+bash 'sysctl vm.overcommit_memory enable' do
+  user 'root'
+  code <<-EOC
+  sysctl vm.overcommit_memory=1
+  EOC
+end
