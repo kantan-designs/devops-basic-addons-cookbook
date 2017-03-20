@@ -8,10 +8,6 @@ package 'vim'
 # Because not everyone will send us nice  .tar.gz files
 package 'unzip'
 
-locales "Add locales" do
-  locales node["devops-basic-addons-cookbook"]["additional_locales"]
-end
-
 # Add a banner to ssh login if we're in the production environment
 if node[:environment] == 'production'
   sshd_config = '/etc/ssh/sshd_config'
